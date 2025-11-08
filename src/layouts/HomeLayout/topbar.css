@@ -1,0 +1,182 @@
+.optionWrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.option {
+  position: relative;
+}
+.option span {
+  color: #636880;
+  font-size: 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropContainer {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+  padding: 18px 0;
+}
+
+.dropContainer p {
+  display: flex;
+  align-items: center;
+  color: #262626;
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 10px 0;
+}
+.dropContainer img {
+  margin-right: 17px;
+  width: 14px;
+  height: 14px;
+}
+.dropContainer div {
+  padding: 0 80px 0 36px;
+}
+
+.dropContainerLanguage {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  min-width: 219px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.dropContainerLanguage p {
+  display: flex;
+  align-items: center;
+  color: #262626;
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.dropContainerLanguage img {
+  margin-right: 17px;
+  width: 14px;
+  height: 14px;
+}
+
+.dropContainerLanguage .languagename {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.languagename .checkedIcon {
+  color: #0856cc;
+}
+
+.dropContainerLanguage .selectLanguage {
+  width: 100%;
+  max-width: 189px;
+  height: 42px;
+  background-color: rgba(198, 198, 198, 0.17);
+  color: #262626;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* transparent header and its dropown */
+
+.optionWrapperTransParent {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.marketPlaceOption {
+  position: relative;
+}
+.marketPlaceOption span {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropContainer {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+  padding: 18px 0;
+}
+
+.dropContainer p {
+  display: flex;
+  align-items: center;
+  color: #262626;
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 10px 0;
+}
+.dropContainer img {
+  margin-right: 17px;
+  width: 14px;
+  height: 14px;
+}
+.dropContainer div {
+  padding: 0 80px 0 36px;
+}
+
+.dropContainerLanguage {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  min-width: 219px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.dropContainerLanguage p {
+  display: flex;
+  align-items: center;
+  color: #262626;
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.dropContainerLanguage img {
+  margin-right: 17px;
+  width: 14px;
+  height: 14px;
+}
+
+.dropContainerLanguage .languagename {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.languagename .checkedIcon {
+  color: #0856cc;
+}
+
+.dropContainerLanguage .selectLanguage {
+  width: 100%;
+  max-width: 189px;
+  height: 42px;
+  background-color: rgba(198, 198, 198, 0.17);
+  color: #262626;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
