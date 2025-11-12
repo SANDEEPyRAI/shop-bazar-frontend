@@ -109,7 +109,7 @@ const Login = () => {
     setIsLogin(true);
 
     // Fetch profile data (optional but good)
-    getProfileData();
+    // getProfileData();
     localStorage.setItem("token", "kjsdhfkjhdskfjhskjdfhkjsdf");
   };
 

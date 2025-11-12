@@ -61,7 +61,7 @@ export default function Catalogue() {
       </Box>
 
       <section className="trendingMedicalSection">
-        <TrendingComponent type="landingPage" data={masterTrendingCourses} />
+        {/* <TrendingComponent type="landingPage" data={masterTrendingCourses} /> */}
       </section>
     </div>
   );
