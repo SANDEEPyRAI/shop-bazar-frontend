@@ -1,0 +1,31 @@
+
+
+.slider-container {
+  width:100%;
+  margin: auto;
+  background-color:#ECECEC ;
+}
+
+.testimonial-card {
+  text-align: center;
+   border: 1px solid #ccc;
+   border-radius: 5px; 
+  padding: 5px;
+  margin-bottom: 50px;
+  transition: transform 0.5s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.slick-center .testimonial-card {
+  transform: scale(1); 
+   z-index: 2;  
+}
+
+.slick-slide {
+  transition: transform 0.5s ease;
+}
+
+.slick-slide:not(.slick-center) .testimonial-card {
+  transform: scale(0.7); 
+}

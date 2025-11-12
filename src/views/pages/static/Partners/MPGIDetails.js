@@ -1,0 +1,489 @@
+import React, { useRef, useState, useEffect } from "react";
+import {
+  Container,
+  Grid,
+  Box,
+  Typography,
+  IconButton,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import Slider from "react-slick";
+import "../../../../scss/Testimonials.css";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+const useStyles = makeStyles((theme) => ({
+  bannerbox: {
+    maxWidth: "1282px",
+    height: "361px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: "1px",
+    borderRadius: "20px",
+    [theme.breakpoints.down("xs")]: {
+      height: "250px !important",
+    },
+    [theme.breakpoints.up("xs")]: {
+      height: "190px !important",
+    },
+    [theme.breakpoints.only("sm")]: {
+      height: "250px !important",
+    },
+    [theme.breakpoints.up("sm")]: {
+      height: "300px !important",
+    },
+    [theme.breakpoints.only("md")]: {
+      height: "361px !important",
+    },
+    [theme.breakpoints.up("lg")]: {
+      height: "361px !important",
+    },
+  },
+  campusimg: {
+    border: "1px solid #ECECEC",
+    borderRadius: "20px",
+    height: "100%",
+    width: "100%",
+    // objectFit: "cover",
+  },
+  logo: {
+    position: "absolute",
+    marginTop: "-70px",
+    marginLeft: "4%",
+    spacing: "4",
+    maxWidth: "138px",
+    maxHeight: "129px",
+    [theme.breakpoints.down("xs")]: {
+      width: "90px !important",
+      height: "90px !important",
+      marginLeft: "6% !important",
+    },
+    [theme.breakpoints.up("xs")]: {
+      width: "100px",
+      height: "100px",
+      marginLeft: "6%",
+      marginTop: "-50px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "110px",
+      height: "110px",
+      marginLeft: "6%",
+      marginTop: "-70px",
+    },
+    [theme.breakpoints.only("md")]: {
+      width: "120px",
+      height: "120px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "138px",
+      height: "129px",
+    },
+  },
+  logobox: {
+    height: "129px",
+    width: "138px",
+    paddingLeft: " 0%",
+    backgroundColor: "white",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: "1px",
+    borderRadius: "20px",
+    [theme.breakpoints.down("xs")]: {
+      width: "68px !important",
+      height: "70px !important",
+    },
+    [theme.breakpoints.up("xs")]: {
+      width: "88px",
+      height: "90px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "88px",
+      height: "90px",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "100px",
+      height: "102px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "138px",
+      height: "129px",
+    },
+  },
+  logoimg: {
+    height: "91px",
+    width: "92px",
+    // backgroundColor: "white",
+    [theme.breakpoints.down("xs")]: {
+      width: "50px !important",
+      height: "52px  !important",
+    },
+    [theme.breakpoints.up("xs")]: {
+      width: "60px",
+      height: "62px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "60px",
+      height: "62px",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "72px",
+      height: "74px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "90px",
+      height: "91px",
+    },
+  },
+  heading: {
+    marginLeft: "7%",
+    marginTop: "9%",
+    marginBottom: "2%",
+    [theme.breakpoints.down("xs")]: { marginTop: "16% !important" },
+    [theme.breakpoints.up("xs")]: { marginTop: "16% !important" },
+    [theme.breakpoints.down("sm")]: { marginTop: "10% !important" },
+    [theme.breakpoints.up("sm")]: { marginTop: "6% !important" },
+    [theme.breakpoints.up("md")]: {
+      marginTop: "6% !important",
+    },
+    [theme.breakpoints.up("lg")]: {
+      marginTop: "6% !important",
+    },
+  },
+  headingtext: {
+    color: "#0856CC",
+    fontSize: "30px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "18px",
+    },
+    [theme.breakpoints.only("xs")]: {
+      fontSize: "20px",
+    },
+    [theme.breakpoints.down("sm")]: { fontSize: "22px" },
+    [theme.breakpoints.up("sm")]: { fontSize: "26px" },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "30px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "30px",
+    },
+  },
+  paragraph: {
+    color: "#636880",
+    fontSize: "10px",
+  },
+  listStyle: {
+    color: "#636880",
+    fontSize: "10px",
+  },
+  footerimg: {
+    width: "100%",
+    height: "auto",
+    maxHeight: "500px",
+  },
+  campusimgbox: {
+    border: "1px solid white",
+    backgroundColor: "white",
+    borderRadius: "20px",
+    position: "relative",
+  },
+}));
+function App() {
+  const slider = React.useRef(null);
+  const classes = useStyles();
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "14px",
+    slidesToShow: 3,
+    speed: 1000,
+
+    autoplay: true,
+    autoplaySpeed: 1500,
+    backgroundColor: "rgba(8, 86, 204, 0.03)",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          centerMode: true,
+          infinite: true,
+          autoplay: true,
+          autoplaySpeed: 1500,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          centerMode: false,
+          autoplay: true,
+          autoplaySpeed: 1500,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          centerMode: false,
+          autoplay: true,
+          autoplaySpeed: 1500,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+          autoplay: true,
+          autoplaySpeed: 1500,
+        },
+      },
+    ],
+  };
+
+  const styles = {
+    image: {
+      height: "100%",
+      width: "100%",
+      borderRadius:"5px",
+    },
+    paragraph: {
+      textAlign: "center",
+      objectFit: "cover",
+    },
+    footer: {
+      display: "flex",
+      textAlign: "center",
+      justifyContent: "center",
+      margin: "1rem 2rem",
+    },
+    testimonialCard: {},
+  };
+  const testimonials = [
+    {
+      image: "./images/collegegallery/MPGI3.jpg",
+    },
+    {
+      image: "./images/collegegallery/MPGI1.jpg",
+    },
+    {
+      image: "./images/collegegallery/MPGI2.jpg",
+    },
+    {
+      image: "./images/collegegallery/MPGI4.jpg",
+    },
+    {
+      image: "./images/collegegallery/MPGI5.jpg",
+    },
+    {
+      image: "./images/collegegallery/MPGI6.jpg",
+    },
+  ];
+  return (
+    <>
+    <div style={{ backgroundColor: "#ECECEC" }}>
+      <Container>
+        <div className={classes.campusimgbox}>
+          <div style={{ maxWidth: "1282px", maxHeight: "361px" }}>
+            <Box className={classes.bannerbox}>
+              <img
+                src="images/ResourcesImg/Maharana Pratap Group of Institutions.jpg"
+                alt="iitmadraash"
+                className={classes.campusimg}
+              />
+            </Box>
+            <div className={classes.logo}>
+              <Box className={classes.logobox}>
+                <img
+                  src="images/ResourcesImg/mpgi_logo.png"
+                  alt="iitmadraashlogo"
+                  className={classes.logoimg}
+                />
+              </Box>
+            </div>
+          </div>
+
+          <div>
+            <div className={classes.heading}>
+              <Typography className={classes.headingtext}>
+                Maharana Pratap Group of Institutions
+              </Typography>
+              <Typography style={{ paddingTop: "10px" }}>
+                {" "}
+                <b>Address: </b>{" "}
+                <span style={{ color: "#636880" }}>
+                  Kothi, Mandhana, Bahlolpur, Uttar Pradesh 209217
+                </span>
+              </Typography>
+              <Typography style={{ paddingTop: "5px" }}>
+                {" "}
+                <span
+                  style={{
+                    backgroundColor: "#F7F7F7",
+                    color: "#636880",
+                    fontSize: "14px",
+                  }}
+                >
+                  {" "}
+                  Public/Government Institute{" "}
+                </span>
+                <span
+                  style={{
+                    backgroundColor: "#F7F7F7",
+                    color: "#636880",
+                    fontSize: "14px",
+                    marginLeft: "2%",
+                  }}
+                >
+                  {" "}
+                  Estd. 1935
+                </span>
+              </Typography>
+            </div>
+          </div>
+        </div>
+        <br />
+
+        <Grid container spacing={6}>
+          <Grid item xs={12} sm={12} md={6}>
+            <img
+              src="images/ResourcesImg/maharanacollege.jpg"
+              alt="iitmadraash"
+              style={{ height: "100%", width: "100%", objectFit: "cover" }}
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={12} md={6}>
+            <Typography variant="h6" style={{ color: "#262626" }}>
+              <b>I&AI CoE at Maharana Pratap Group of Institutions</b>
+            </Typography>
+            <Typography className={classes.paragraph}>
+              We are delighted to announce the establishment of the GyanBatua
+              Innovation & Artificial Intelligence Center of Excellence (I&AI
+              CoE) in collaboration with Maharana Pratap Group of Institutions
+              Kanpur. The memorandum of understanding (MoU) was signed and the
+              CoE was inaugurated on Feb.15, 2023 by Mr. Gaurav Bhadouria
+              Jt.Secretary, MPGI and Mr. Aakash Gehlot - Director Skills &
+              Corporate Relations Mobiloitte, and Mr. Gaurav Khaturia - Branding
+              & Strategy Vice President Moiloitte, marking a significant
+              milestone in our partnership journey.
+            </Typography>
+            <Typography className={classes.paragraph}>
+              Since its inception, the CoE has been instrumental under the
+              guidance of Ms.Nandini Sawhney Head- Department Of Training &
+              Placement, aimed at empowering students and faculty with
+              cutting-edge skills in artificial intelligence, machine learning,
+              blockchain, and other emerging technologies. Through these
+              initiatives, we aim to create a dynamic learning ecosystem that
+              prepares students for the challenges and opportunities of the
+              future.
+            </Typography>
+
+            <Grid item xs={12} sm={12} md={12}>
+              <div
+                style={{ height: "400px", maxWidth: "100%", marginTop: "2rem" }}
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3569.1140589394554!2d80.22407217473109!3d26.548603475644487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c36d3fd40ebef%3A0x183999e2f4a3447b!2sMPGI!5e0!3m2!1sen!2sin!4v1707908714945!5m2!1sen!2sin"
+                  width="100%"
+                  frameborder="0"
+                  style={{ height: "100%", width: "100%", objectFit: "cover" }}
+                ></iframe>
+              </div>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        {/* <Grid container spacing={3} style={{ marginTop: "5%" }}>
+          <Grid item xs={12} sm={4} md={4} lg={4}>
+            <img src="images/team1.png" alt="pic1" className={classes.footerimg} />
+          </Grid>
+
+          <Grid item xs={12} sm={4} md={4} lg={4}>
+            <img src="images/team2.png" alt="pic1" className={classes.footerimg} />
+          </Grid>
+
+          <Grid item xs={12} sm={4} md={4} lg={4}>
+            <img src="images/team3.png" alt="pic1" className={classes.footerimg} />
+          </Grid>
+        </Grid> */}
+      </Container>
+    </div>
+    <Box
+        className="slider-container"
+        sx={{ position: "relative", bgcolor: "#ECECEC" }}
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            left: 0,
+            top: "55%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+          }}
+        >
+          <IconButton onClick={() => slider.current.slickPrev()}>
+            <ArrowBackIcon />
+          </IconButton>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Typography
+            variant="h3"
+            style={{
+              color: "#0856CC",
+              marginTop: "4rem",
+              marginBottom: "2rem",
+            }}
+          >
+            Gallery
+          </Typography>
+        </Box>
+        <Slider ref={slider} {...settings}>
+          {testimonials.map((testimonial, index) => (
+            <Box
+              key={index}
+              className="testimonial-card"
+              style={{
+                background:
+                  index % 2 === 0 ? "rgba(82, 49, 104, 0.10)" : "#e9e9e9",
+                userSelect: "none",
+                cursor: "pointer",
+               
+              }}
+            >
+              <Box style={styles.paragraph}>
+                <img src={testimonial.image} alt="pic" style={styles.image} />{" "}
+              </Box>
+            </Box>
+          ))}
+        </Slider>
+        <Box
+          sx={{
+            position: "absolute",
+            right: 0,
+            top: "55%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+          }}
+        >
+          <IconButton onClick={() => slider.current.slickNext()}>
+            <ArrowForwardIcon />
+          </IconButton>
+        </Box>
+      </Box>
+    </>
+  );
+}
+
+export default App;

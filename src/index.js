@@ -1,18 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import App from "./App";
-import { CustomThemeProvider } from "./theme/ThemeContext";
-import CssBaseline from "@mui/material/CssBaseline";
-import { BrowserRouter } from "react-router-dom";
+import * as serviceWorker from "./serviceWorker";
+import "../src/scss/main.css";
+import { CartProvider } from "src/context/CartContext";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <CustomThemeProvider>
-      <CssBaseline />
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </CustomThemeProvider>
-  </React.StrictMode>
+ReactDOM.render(
+  <CartProvider>
+    <App />
+  </CartProvider>,
+  document.getElementById("root")
 );
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
